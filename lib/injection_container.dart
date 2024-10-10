@@ -1,6 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:qeema_task/core/network/app_inceptors.dart';
 
-final getIt = GetIt.instance;
+import 'core/network/dio/base_dio.dart';
+import 'core/network/dio/dio_client.dart';
+
+final sl = GetIt.instance;
 
 Future initDependencies() async {
   await InjectionHelper.injectExternal();
@@ -16,7 +21,18 @@ Future initDependencies() async {
 abstract class InjectionHelper {
   static Future<void> injectExternal() async {}
 
-  static void injectCore() {}
+  static void injectCore() {
+    sl.registerLazySingleton(() => Dio());
+    sl.registerSingleton<BaseDio>(
+      DioClient(
+        dio: sl(),
+        interceptors: [
+          AppInterceptors(),
+        ],
+        options: BaseOptions(),
+      ),
+    );
+  }
 
   static void injectDatasources() {}
 
