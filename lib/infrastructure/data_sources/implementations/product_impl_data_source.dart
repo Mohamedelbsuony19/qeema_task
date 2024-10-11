@@ -1,5 +1,4 @@
 import 'package:qeema_task/core/constants/end_points.dart';
-
 import '../../../core/network/dio/base_dio.dart';
 import '../abstractions/product_base_data_source.dart';
 
@@ -13,12 +12,12 @@ class ProductImplDataSource extends ProductBaseDataSource {
     final response = await _dioClient.get(
       '${EndPoints.getProduct}$productId',
     );
-    return response.data;
+    return response.data as Map<String, dynamic>;
   }
 
   @override
-  Future<Map<String, dynamic>> getProducts() async {
+  Future<List<dynamic>> getProducts() async {
     final response = await _dioClient.get(EndPoints.getAllProducts);
-    return response.data;
+    return response.data; // تأكد من تحويل البيانات إلى قائمة
   }
 }
