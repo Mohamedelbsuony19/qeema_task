@@ -26,7 +26,6 @@ class ProductDetailScreenState extends State<ProductDetailScreen> {
     super.initState();
     _imageController = PageController(initialPage: 0);
 
-    // Timer to auto-slide the images
     _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) {
       if (_currentImage < widget.product.images.length - 1) {
         _currentImage++;

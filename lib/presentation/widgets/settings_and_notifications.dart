@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qeema_task/core/constants/local_keys.dart';
+import 'package:qeema_task/core/constants/app_constants.dart';
 import 'package:qeema_task/presentation/blocs/product/product_bloc.dart';
 
 class SettingsAndNotifications extends StatelessWidget {
@@ -21,7 +21,7 @@ class SettingsAndNotifications extends StatelessWidget {
           },
         ),
         const CircleAvatar(
-          backgroundImage: AssetImage(Assets.logo),
+          backgroundImage: AssetImage(AppConstants.logo),
           radius: 20,
         ),
       ],

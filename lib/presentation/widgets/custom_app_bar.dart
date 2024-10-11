@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qeema_task/presentation/widgets/settings_and_notifications.dart';
 
-import '../../core/constants/local_keys.dart';
+import '../../core/constants/app_constants.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -25,7 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: Row(
         children: [
-          Image.asset(Assets.logo, height: w * 0.08),
+          Image.asset(AppConstants.logo, height: w * 0.08),
           const Spacer(),
           if (w > 800)
             const Expanded(
