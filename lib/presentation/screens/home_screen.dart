@@ -93,6 +93,6 @@ class HomeScreenState extends State<HomeScreen>
     setState(() {
       _tabController.index = index;
     });
-    Navigator.pop(context); // Close the drawer
+    Navigator.pop(context);
   }
 }

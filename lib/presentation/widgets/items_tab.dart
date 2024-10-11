@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:qeema_task/app/config/app_router.dart';
 import 'package:qeema_task/presentation/blocs/product/product_bloc.dart';
 import 'package:qeema_task/presentation/widgets/prdouct_card.dart';
 
@@ -23,6 +25,14 @@ class ItemsTab extends StatelessWidget {
                   itemCount: value.products?.length,
                   itemBuilder: (context, index) {
                     return ListCard(
+                        onTap: () {
+                          context.push(
+                            Routes.productDetails,
+                            extra: {
+                              'product': value.products?[index],
+                            },
+                          );
+                        },
                         categoryName:
                             value.products?[index].category.name ?? "",
                         description: value.products?[index].description ?? "",
