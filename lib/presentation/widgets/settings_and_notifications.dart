@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:qeema_task/core/constants/local_keys.dart';
-import 'package:qeema_task/presentation/blocs/product/product_bloc.dart';
 
 class SettingsAndNotifications extends StatelessWidget {
   const SettingsAndNotifications({super.key});
@@ -16,12 +15,10 @@ class SettingsAndNotifications extends StatelessWidget {
         IconButton(
           icon:
               const Icon(Icons.notifications_none_rounded, color: Colors.white),
-          onPressed: () {
-            const ProductEvent.getAllProducts();
-          },
+          onPressed: () {},
         ),
         const CircleAvatar(
-          backgroundImage: AssetImage(Assets.logo),
+          backgroundImage: AssetImage(AppConstants.logo),
           radius: 20,
         ),
       ],

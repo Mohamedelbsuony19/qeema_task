@@ -1,9 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:qeema_task/app/config/app_router.dart';
-import 'package:qeema_task/presentation/blocs/product/product_bloc.dart';
 
+import '../../domain/entities/product_entity.dart';
 import 'prdouct_card.dart';
 
 class ItemsTab extends StatelessWidget {
@@ -13,35 +13,37 @@ class ItemsTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return BlocBuilder<ProductBloc, ProductState>(
-          builder: (context, state) {
-            return state.maybeMap(
-              orElse: () {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              },
-              loadSuccess: (value) {
-                return ListView.builder(
-                  itemCount: value.products?.length ??
-                      0, 
-                  itemBuilder: (context, index) {
-                    return ListCard(
-                      onTap: () {
-                        context.push(
-                          Routes.productDetails,
-                          extra: {
-                            'product': value.products?[index],
-                          },
-                        );
-                      },
-                      categoryName: value.products?[index].title ?? "",
-                      description: value.products?[index].description ?? "",
-                      price: value.products?[index].price ?? "",
-                      title: value.products?[index].title ?? "",
-                      imageUrl: value.products?[index].images.first ?? "",
+        return StreamBuilder<QuerySnapshot>(
+          stream: FirebaseFirestore.instance.collection('products').snapshots(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text('Error: ${snapshot.error}'));
+            } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+              return const Center(child: Text('No products found.'));
+            }
+
+            final products = snapshot.data!.docs.map((doc) {
+              return ProductEntity.fromJson(doc.data() as Map<String, dynamic>);
+            }).toList();
+
+            return ListView.builder(
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                final product = products[index];
+                return ListCard(
+                  onTap: () {
+                    context.push(
+                      Routes.productDetails,
+                      extra: {'product': product},
                     );
                   },
+                  categoryName: product.title,
+                  description: product.description,
+                  price: product.price,
+                  title: product.title,
+                  imageUrl: product.images.first,
                 );
               },
             );
