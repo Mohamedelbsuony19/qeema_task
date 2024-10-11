@@ -3,7 +3,7 @@ import 'package:qeema_task/core/network/failure.dart';
 import 'package:qeema_task/domain/entities/product_entity.dart';
 
 import '../../domain/base_repos/product_base_repo.dart';
-import '../data_sources/abstractions/product_base_datasource.dart';
+import '../data_sources/abstractions/product_base_data_source.dart';
 
 class ProductImplRepo implements ProductBaseRepo {
   final ProductBaseDataSource _productBaseDataSource;
@@ -26,9 +26,7 @@ class ProductImplRepo implements ProductBaseRepo {
   Future<Either<Failure, List<ProductEntity>>> getProducts() async {
     try {
       final response = await _productBaseDataSource.getProducts();
-      return Right((response as List)
-          .map((e) => ProductEntity.fromJson(e))
-          .toList());
+      return Right((response).map((e) => ProductEntity.fromJson(e)).toList());
     } catch (e) {
       return Left(ServerFailure(e.toString()));
     }
