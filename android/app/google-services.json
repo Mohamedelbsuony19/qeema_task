@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "795210531584",
+    "project_id": "qeema-df33c",
+    "storage_bucket": "qeema-df33c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795210531584:android:afc55087f884f15c5be9e5",
+        "android_client_info": {
+          "package_name": "com.example.qeema_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe67nf91pZaKOXz2YrdN8FvykpOgl0DOE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

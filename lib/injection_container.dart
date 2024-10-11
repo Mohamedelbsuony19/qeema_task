@@ -44,7 +44,7 @@ abstract class InjectionHelper {
 
   static void injectDatasources() {
     sl.registerSingleton<ProductBaseDataSource>(
-      ProductImplDataSource(dioClient: sl()),
+      ProductImplDataSource(),
     );
   }
 

@@ -48,7 +48,7 @@ class ProductBody extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            'Category: ${widget.product.category.name}',
+            'Category: ${widget.product.category}',
             style: const TextStyle(
               fontSize: 16,
               color: Color.fromARGB(255, 32, 17, 17),

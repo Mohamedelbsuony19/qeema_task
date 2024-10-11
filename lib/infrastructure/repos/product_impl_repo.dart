@@ -22,13 +22,15 @@ class ProductImplRepo implements ProductBaseRepo {
     }
   }
 
-  @override
-  Future<Either<Failure, List<ProductEntity>>> getProducts() async {
-    try {
-      final response = await _productBaseDataSource.getProducts();
-      return Right((response).map((e) => ProductEntity.fromJson(e)).toList());
-    } catch (e) {
-      return Left(ServerFailure(e.toString()));
-    }
+@override
+Future<Either<Failure, List<ProductEntity>>> getProducts() async {
+  try {
+    final response = await _productBaseDataSource.getProducts();
+    
+    return Right(response.map((e) => ProductEntity.fromJson(e)).toList());
+  } catch (e) {
+    return Left(ServerFailure(e.toString()));
   }
+}
+
 }

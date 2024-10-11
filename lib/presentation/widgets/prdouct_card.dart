@@ -6,7 +6,7 @@ class ListCard extends StatelessWidget {
   final String title;
 
   final String description;
-  final double price;
+  final String price;
   final String categoryName;
     final GestureTapCallback? onTap;
 
