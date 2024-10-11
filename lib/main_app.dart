@@ -13,6 +13,9 @@ class MainApp extends StatelessWidget {
       providers: providers,
       child: MaterialApp.router(
         routerConfig: appRouter,
+        theme:  ThemeData(
+          useMaterial3: true,
+        ),
       ),
     );
   }
