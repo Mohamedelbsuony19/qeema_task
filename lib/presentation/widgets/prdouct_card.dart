@@ -4,7 +4,7 @@ class ListCard extends StatelessWidget {
   final String imageUrl;
 
   final String title;
-
+  
   final String description;
   final String price;
   final String categoryName;
@@ -136,7 +136,7 @@ class ListCard extends StatelessWidget {
               child: Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-                width: MediaQuery.of(context).size.width * 0.25,
+                width: MediaQuery.of(context).size.width * 0.4,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
@@ -146,7 +146,7 @@ class ListCard extends StatelessWidget {
                   color: Colors.black.withOpacity(0.5),
                 ),
                 child: SizedBox(
-                  height: MediaQuery.sizeOf(context).height * 0.05,
+                  height: MediaQuery.sizeOf(context).height * 0.04,
                   child: Center(
                     child: Text(
                       ' $categoryName',
