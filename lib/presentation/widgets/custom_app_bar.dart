@@ -9,8 +9,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
-    const Color primaryColor = Color(0xFFFFC268);
-    const Color secondaryColor = Color(0xFF999999);
 
     return AppBar(
       iconTheme: const IconThemeData(color: Colors.white),
