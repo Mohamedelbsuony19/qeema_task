@@ -8,8 +8,7 @@ class ListCard extends StatelessWidget {
   final String description;
   final String price;
   final String categoryName;
-    final GestureTapCallback? onTap;
-
+  final GestureTapCallback? onTap;
 
   const ListCard(
       {super.key,
@@ -17,7 +16,8 @@ class ListCard extends StatelessWidget {
       required this.title,
       required this.description,
       required this.price,
-      required this.categoryName, this.onTap});
+      required this.categoryName,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class ListCard extends StatelessWidget {
     const Color textColor = Color(0xFF999999);
 
     return GestureDetector(
-      onTap:onTap ,
+      onTap: onTap,
       child: Container(
         width: 243,
         margin: const EdgeInsets.all(8),
@@ -134,7 +134,8 @@ class ListCard extends StatelessWidget {
               bottom: 115,
               left: 10,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                 width: MediaQuery.of(context).size.width * 0.25,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -144,7 +145,8 @@ class ListCard extends StatelessWidget {
                   ),
                   color: Colors.black.withOpacity(0.5),
                 ),
-                child: Expanded(
+                child: SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 0.05,
                   child: Center(
                     child: Text(
                       ' $categoryName',

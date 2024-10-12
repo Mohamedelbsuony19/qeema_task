@@ -27,21 +27,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Image.asset(AppConstants.logo, height: w * 0.08),
           const Spacer(),
-          if (w > 800)
-            const Expanded(
-              child: TabBar(
-                indicatorColor: primaryColor,
-                unselectedLabelColor: secondaryColor,
-                labelStyle: TextStyle(color: primaryColor),
-                tabs: [
-                  Tab(text: "Items"),
-                  Tab(text: "Pricing"),
-                  Tab(text: "Info"),
-                  Tab(text: "Tasks"),
-                  Tab(text: "Contact Me"),
-                ],
-              ),
-            ),
           const SettingsAndNotifications(),
         ],
       ),

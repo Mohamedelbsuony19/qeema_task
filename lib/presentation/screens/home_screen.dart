@@ -68,7 +68,7 @@ class HomeScreenState extends State<HomeScreen>
             child: TabBarView(
               controller: _tabController,
               children: const [
-                 ItemsTab(),
+                ItemsTab(),
                 Center(
                     child: Text('Pricing Content',
                         style: TextStyle(color: Colors.white))),
