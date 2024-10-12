@@ -34,7 +34,7 @@ class ItemsTab extends StatelessWidget {
                           },
                         );
                       },
-                      categoryName: value.products?[index].title ?? "",
+                      categoryName: value.products?[index].category ?? "",
                       description: value.products?[index].description ?? "",
                       price: value.products?[index].price ?? "",
                       title: value.products?[index].title ?? "",
