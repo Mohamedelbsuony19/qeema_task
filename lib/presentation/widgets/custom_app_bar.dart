@@ -9,8 +9,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
-    const Color primaryColor = Color(0xFFFFC268);
-    const Color secondaryColor = Color(0xFF999999);
 
     return AppBar(
       iconTheme: const IconThemeData(color: Colors.white),
@@ -27,21 +25,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Image.asset(Assets.logo, height: w * 0.08),
           const Spacer(),
-          if (w > 800)
-            const Expanded(
-              child: TabBar(
-                indicatorColor: primaryColor,
-                unselectedLabelColor: secondaryColor,
-                labelStyle: TextStyle(color: primaryColor),
-                tabs: [
-                  Tab(text: "Items"),
-                  Tab(text: "Pricing"),
-                  Tab(text: "Info"),
-                  Tab(text: "Tasks"),
-                  Tab(text: "Contact Me"),
-                ],
-              ),
-            ),
           const SettingsAndNotifications(),
         ],
       ),
