@@ -32,14 +32,14 @@ class ItemsTab extends StatelessWidget {
               itemCount: products.length,
               itemBuilder: (context, index) {
                 final product = products[index];
-                return ListCard(
+                return ProductCard(
                   onTap: () {
                     context.push(
                       Routes.productDetails,
                       extra: {'product': product},
                     );
                   },
-                  categoryName: product.title,
+                  categoryName: product.category,
                   description: product.description,
                   price: product.price,
                   title: product.title,

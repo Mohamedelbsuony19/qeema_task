@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ListCard extends StatelessWidget {
+class ProductCard extends StatelessWidget {
   final String imageUrl;
 
   final String title;
-  
+
   final String description;
   final String price;
   final String categoryName;
   final GestureTapCallback? onTap;
 
-  const ListCard(
+  const ProductCard(
       {super.key,
       required this.imageUrl,
       required this.title,
@@ -136,7 +136,7 @@ class ListCard extends StatelessWidget {
               child: Container(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-                width: MediaQuery.of(context).size.width * 0.4,
+                width: MediaQuery.of(context).size.width * 0.25,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
