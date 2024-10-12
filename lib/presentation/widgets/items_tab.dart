@@ -24,7 +24,7 @@ class ItemsTab extends StatelessWidget {
                 return ListView.builder(
                   itemCount: value.products?.length,
                   itemBuilder: (context, index) {
-                    return ListCard(
+                    return ProductCart(
                         onTap: () {
                           context.push(
                             Routes.productDetails,

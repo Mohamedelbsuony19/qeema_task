@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ListCard extends StatelessWidget {
+class ProductCart extends StatelessWidget {
   final String imageUrl;
 
   final String title;
@@ -8,16 +8,16 @@ class ListCard extends StatelessWidget {
   final String description;
   final double price;
   final String categoryName;
-    final GestureTapCallback? onTap;
+  final GestureTapCallback? onTap;
 
-
-  const ListCard(
+  const ProductCart(
       {super.key,
       required this.imageUrl,
       required this.title,
       required this.description,
       required this.price,
-      required this.categoryName, this.onTap});
+      required this.categoryName,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class ListCard extends StatelessWidget {
     const Color textColor = Color(0xFF999999);
 
     return GestureDetector(
-      onTap:onTap ,
+      onTap: onTap,
       child: Container(
         width: 243,
         margin: const EdgeInsets.all(8),
@@ -63,7 +63,11 @@ class ListCard extends StatelessWidget {
                           topRight: Radius.circular(16),
                         ),
                         image: DecorationImage(
-                          image: NetworkImage(imageUrl),
+                          image: NetworkImage(
+                            imageUrl.isNotEmpty
+                                ? imageUrl
+                                : "https://via.placeholder.com/150", // تحقق من وجود رابط الصورة
+                          ),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -134,7 +138,8 @@ class ListCard extends StatelessWidget {
               bottom: 115,
               left: 10,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                 width: MediaQuery.of(context).size.width * 0.25,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -144,7 +149,8 @@ class ListCard extends StatelessWidget {
                   ),
                   color: Colors.black.withOpacity(0.5),
                 ),
-                child: Expanded(
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.05,
                   child: Center(
                     child: Text(
                       ' $categoryName',
