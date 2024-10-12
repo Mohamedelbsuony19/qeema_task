@@ -13,7 +13,8 @@ class MainApp extends StatelessWidget {
       providers: providers,
       child: MaterialApp.router(
         routerConfig: appRouter,
-        theme:  ThemeData(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
           useMaterial3: true,
         ),
       ),
